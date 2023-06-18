@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class PostController extends Controller
 {
-    public function index(): Collection
+    public function index(): AnonymousResourceCollection
     {
-        return Post::all();
-    }}
+        return PostResource::collection(Post::all());
+    }
+}
