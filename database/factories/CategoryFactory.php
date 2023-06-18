@@ -3,13 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Post>
+ * @extends Factory<Category>
  */
-class PostFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +18,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->text(16),
-            'content' => fake()->text(),
-            'category_id' => Category::factory()->create(),
+            'name' => fake()->text(32),
         ];
     }
 }
