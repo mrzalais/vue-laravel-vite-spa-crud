@@ -8,6 +8,7 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -54,5 +55,12 @@ class PostController extends Controller
         $post->update($request->validated());
 
         return new PostResource($post);
+    }
+
+    public function destroy(Post $post): Response
+    {
+        $post->delete();
+
+        return response()->noContent();
     }
 }
